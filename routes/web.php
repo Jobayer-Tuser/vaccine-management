@@ -1,11 +1,9 @@
 <?php
 
+use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -18,3 +16,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/', function () {
+    return view('vaccine.index');
+});
+
+Route::get('/vaccine-status', [VaccineController::class, 'status'])->name('vaccine.status');
+Route::resource('/vaccine', VaccineController::class);
+
+
