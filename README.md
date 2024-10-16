@@ -5,7 +5,6 @@ This project is for vaccine management system you can register for vaccine you c
 
 ### Run the project
 This is an example of how to list things you need to use the software and how to install them.
-* npm
   ```sh
   composer install
   php artisan migrate
@@ -14,7 +13,6 @@ This is an example of how to list things you need to use the software and how to
   ```
 
 ### Route List
-
   ```sh
   php artisan route:list
   ```
