@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\VaccineStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,7 +24,8 @@ return new class extends Migration
             $table->string("nid");
             $table->string("phone");
             $table->dateTime("schedule_date");
-            $table->string("status");
+            $table->enum("status", [VaccineStatus::SCHEDULED, VaccineStatus::NOT_SCHEDULED, VaccineStatus::NOT_REGISTERED, VaccineStatus::VACCINATED])
+                    ->default(VaccineStatus::NOT_REGISTERED);
             $table->timestamps();
         });
     }

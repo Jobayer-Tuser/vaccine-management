@@ -24,4 +24,9 @@ Route::get('/', function () {
 Route::get('/vaccine-status', [VaccineController::class, 'status'])->name('vaccine.status');
 Route::resource('/vaccine', VaccineController::class);
 
+Route::get('services', function (){
+    $service = new \App\Services\ConsulService();
+    dd($service->discoverServices('vaccine-service'));
+});
+
 
