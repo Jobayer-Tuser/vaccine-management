@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\ProfileController;
+use App\Services\ConsulService;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,7 +26,7 @@ Route::get('/vaccine-status', [VaccineController::class, 'status'])->name('vacci
 Route::resource('/vaccine', VaccineController::class);
 
 Route::get('services', function (){
-    $service = new \App\Services\ConsulService();
+    $service = new ConsulService();
     dd($service->discoverServices('vaccine-service'));
 });
 
